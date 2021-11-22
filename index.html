@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple Soundboard</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    
+    <!-- Apple stuff -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
     <script src="./inc/js/jquery-3.3.1.min.js"></script>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -19,8 +22,8 @@
       integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" type="text/css" href="/inc/css/bttn.css" />
-    <link rel="stylesheet" type="text/css" href="/inc/css/sb.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./inc/css/bttn.css" /> -->
+    <link rel="stylesheet" type="text/css" href="./inc/css/sb.css" />
      <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css"
@@ -33,36 +36,13 @@
   </head>
 
   <body>
-    <nav
-      id="topNav"
-      class="navbar navbar-expand-md bg-dark navbar-dark fixed-top"
-    >
-      <a class="navbar-brand text-white" href="/">Simple Soundboard</a>
-      <input
-        type="search"
-        class="input-sm"
-        id="filterInput"
-        placeholder="filter drops"
-        autofocus
-      />
-
-        <button class="btn bg-transparent btn-filter" id="filterClearBtn" style="margin-left: -40px; z-index: 100;font-size: 120%;">
-          &times;
-        </button>
- 
-
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#collapsibleNavbar"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+      <a class="navbar-brand" href="/">TATE SOUNDS</a>
     </nav>
 
-    <div id="soundboard" style="padding-top:50px"></div>
+    <div id="soundboard" class="d-grid gap-2" style="padding:50px">
+      
+    </div>
 
     <script type="text/javascript">
       var sounds = [];
@@ -86,55 +66,31 @@
       }).done(function() {
         sounds.map(file => {
           $("#soundboard").append(function() {
-            var thisAudio = $("<audio/>").attr({
-              src: file.mp3,
-              preload: "auto",
-              onplay: "$(this).siblings('button').css('color', 'yellow');",
-              onpause: "$(this).siblings('button').css('color', 'white');",
-              onended: "$(this).siblings('button').css('color', 'white');"
-            });
-            var thisButton;
 
-            if (file.artistName !== "") {
-              thisButton = $("<button />")
-                .addClass("myButton")
-                .text(file.audioName)
-                .attr("data-balloon", file.artistName)
-                .attr("data-balloon-pos", "down");
-            } else {
-              thisButton = $("<button />")
-                .addClass("myButton")
-                .text(file.audioName);
-            }
-            return $("<span />")
-              .addClass("track")
-              .append(thisAudio)
-              .append(thisButton);
+            var thisButton = $("<button />")
+              .addClass("btn btn-danger btn-lg")
+              .data("sound", "./"+file.mp3)
+              .text(file.audioName);
+            
+            return thisButton
           });
         });
         $("#soundboard").on("click", "button", function() {
-          if (playOnlyOneSoundAtATime) {
-            $.each($("audio"), function() {
-              this.pause();
-              this.currentTime = 0;
-            });
-          }
-
-          $(this)
-            .siblings("audio")
-            .get(0)
-            .play();
-        });
+          //Play sound in data-sound attribute
+          var thisSound = $(this).data("sound");
+          var thisAudio = new Audio(thisSound);
+          thisAudio.play();                
+         });
       });
     </script>
 
-    <p>
+    <!-- <p>
       View the
       <a href="https://github.com/digitalcolony/Simple-Soundboard"
         >Simple Soundboard Repo</a
       >
       on GitHub.
-    </p>
-    <script src="./inc/js/filter.js" defer></script>
+    </p> -->
+
   </body>
 </html>
