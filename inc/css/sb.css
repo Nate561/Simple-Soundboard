@@ -27,6 +27,20 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
   }
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.logo {
+    max-width: 10%;
+    height: auto;
+	border-radius: 50%;
+}
 
 .top-buffer { margin-top:20px; }
 /* Page layout */

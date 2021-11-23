@@ -3,42 +3,17 @@
       {
         "name": "UPPPPPPP!",
         "artist": "",
-        "mp3": "/sounds/Ayayayayayayayay!.mp3"
+        "mp3": "/sounds/UPPPPP.mp3"
       },
       {
-        "name": "BREATH",
+        "name": "BACK",
         "artist": "Glen Hill",
-        "mp3": "/sounds/Laugh-Bird.mp3"
+        "mp3": "/sounds/BACK.mp3"
       },
       {
         "name": "HOLD",
         "artist": "",
-        "mp3": "/sounds/Do-do-do-do.mp3"
-      },
-      {
-        "name": "HOLD",
-        "artist": "",
-        "mp3": "/sounds/Do-do-do-do.mp3"
-      },
-      {
-        "name": "UPPPPPPP!",
-        "artist": "",
-        "mp3": "/sounds/Ayayayayayayayay!.mp3"
-      },
-      {
-        "name": "BREATH",
-        "artist": "Glen Hill",
-        "mp3": "/sounds/Laugh-Bird.mp3"
-      },
-      {
-        "name": "HOLD",
-        "artist": "",
-        "mp3": "/sounds/Do-do-do-do.mp3"
-      },
-      {
-        "name": "HOLD",
-        "artist": "",
-        "mp3": "/sounds/Do-do-do-do.mp3"
+        "mp3": "/sounds/HOLD.mp3"
       }
     ]
   }
