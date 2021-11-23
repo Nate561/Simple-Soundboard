@@ -98,6 +98,17 @@
       });
     </script>
 
+    <footer class="footer bg-dark">
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+  
+        <div class="row text-center">
+          <div class="col-md">
+            <p>Site Created By Nathan Eckberg, in honnor of Dave Tate!</p>               
+            <p>LIVE | LEARN | PASS ON</p>
+          </div>
+        </div>        
+      </footer>
+    </footer>
     <!-- <p>
       View the
       <a href="https://github.com/digitalcolony/Simple-Soundboard"
