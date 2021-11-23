@@ -36,20 +36,25 @@
   </head>
 
   <body>
-    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
-      <a class="navbar-brand" href="/">TATE SOUNDS</a>
+    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top justify-content-center text-light">
+      <h1 >
+        TATE SOUNDS
+      </h1>
     </nav>
 
-    <div class="container" style="padding:50px">
-      <div id="soundboard" class="row top-buffer">
-      </div>
-      
+    <div id="soundboard" class="container" style="padding:50px">
+            
     </div>
 
     <script type="text/javascript">
       var sounds = [];
       var playOnlyOneSoundAtATime = true;
+      var row = $('<div \>')
+              .addClass("row")
+              .addClass("top-buffer");
 
+      var column = $('<div \>')
+              .addClass("col");
       $.ajax({
         url: "./inc/json/soundboard.json", // Add link to your JSON file here
         dataType: "json",
@@ -68,16 +73,19 @@
       }).done(function() {
         sounds.map(file => {
           $("#soundboard").append(function() {
-
+            
             var thisButton = $("<button />")
               .addClass("btn btn-danger btn-block")
               .data("sound", "./"+file.mp3)
               .text(file.audioName);
-            
-            return $("<div />")
-              .addClass("col-sm-3")
-              .append(thisButton);
-            // thisButton
+            // return row.clone;
+              //Every fouth button, add a row break or first button 
+            // if (sounds.indexOf(file) % 4 == 0 || sounds.indexOf(file) == 0) {
+              return row.clone().append(column.clone().append(thisButton))                                                     
+            // }else{
+              //append to last div with class row
+              // return $(".row").last().append(column.clone().append(thisButton));
+            // }
           });
         });
         $("#soundboard").on("click", "button", function() {
