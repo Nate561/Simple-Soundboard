@@ -3,17 +3,17 @@
       {
         "name": "UPPPPPPP!",
         "artist": "",
-        "mp3": "/sounds/UPPPPP.mp3"
+        "mp3": "sounds/UPPPPP.mp3"
       },
       {
         "name": "BACK",
         "artist": "Glen Hill",
-        "mp3": "/sounds/BACK.mp3"
+        "mp3": "sounds/BACK.mp3"
       },
       {
         "name": "HOLD",
         "artist": "",
-        "mp3": "/sounds/HOLD.mp3"
+        "mp3": "sounds/HOLD.mp3"
       }
     ]
   }
