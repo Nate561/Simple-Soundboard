@@ -1,6 +1,6 @@
-<?php?>
-
-</php>
+<?php
+echo "hello World";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
