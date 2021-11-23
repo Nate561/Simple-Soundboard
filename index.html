@@ -40,7 +40,9 @@
       <a class="navbar-brand" href="/">TATE SOUNDS</a>
     </nav>
 
-    <div id="soundboard" class="d-grid gap-2" style="padding:50px">
+    <div class="container" style="padding:50px">
+      <div id="soundboard" class="row top-buffer">
+      </div>
       
     </div>
 
@@ -68,11 +70,14 @@
           $("#soundboard").append(function() {
 
             var thisButton = $("<button />")
-              .addClass("btn btn-danger btn-lg")
+              .addClass("btn btn-danger btn-block")
               .data("sound", "./"+file.mp3)
               .text(file.audioName);
             
-            return thisButton
+            return $("<div />")
+              .addClass("col-sm-3")
+              .append(thisButton);
+            // thisButton
           });
         });
         $("#soundboard").on("click", "button", function() {

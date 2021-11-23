@@ -21,20 +21,14 @@
 	top:1px;
 }
 
-.track{
-	/* background-color: #f0f0f0; */
-	/* border-radius: 3px; */
-	/* border: 1px solid #d0d0d0; */
-	padding: 10px;
-	
-	/* margin-bottom: 10px; */
-}
-
 body{
 	background: url("../../dave.jpg");
 	/* background-repeat: no-repeat; */
-	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: cover;
   }
 
+
+.top-buffer { margin-top:20px; }
 /* Page layout */
 
