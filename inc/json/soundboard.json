@@ -14,6 +14,16 @@
         "name": "HOLD",
         "artist": "",
         "mp3": "sounds/HOLD.mp3"
+      },
+      {
+        "name": "MOTHER...",
+        "artist":"",
+        "mp3" :"sounds/Mother.mp3"
+      },
+      {
+        "name": "VOMIT",
+        "artist":"",
+        "mp3" :"sounds/Vomit.mp3"
       }
     ]
   }
