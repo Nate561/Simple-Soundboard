@@ -21,12 +21,6 @@
 	top:1px;
 }
 
-body{
-	background: url("../../dave.jpg");
-	/* background-repeat: no-repeat; */
-	background-repeat: no-repeat;
-	background-size: cover;
-  }
 .btn-xlarge {
     padding: 18px 28px;
     font-size: 22px;
