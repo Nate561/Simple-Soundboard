@@ -18,6 +18,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
     <link rel="manifest" href="./icons/site.webmanifest">
     <script src="./inc/js/jquery-3.3.1.min.js"></script>
+    
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -40,6 +41,7 @@
       rel="icon"
       type="image/x-icon"
     />
+    
   </head>
 
   <body class='bg-dark'>
@@ -52,14 +54,37 @@
       <image src="./icons/dave.png" 
         alt="logo" class="logo" />
     </nav>
+    <div id="playbackControl" class ='container ' style="padding:10px">
+      <div class="row" style='padding-bottom:10px'>
+        <div class="col">                    
+            <select id="playbackType" class="custom-select">
+              <option value="single">Play One Sound</option>
+              <option value="playlist">Queue Sounds</option>
+            </select>          
+        </div>
+      </div>                  
+      <div class="row">
+        <div class="col">    
+          <!-- add bootstrap lable with instructions -->
+          <div style="display: none;" id="playSection">
+            <label for="playlist" class="text-white">CLICK THE SOUNDS YOU WANT TO PLAY IN ORDER AND CLICK PLAY</label>
+            <button  id="playQueue" class="btn btn-primary btn-block btn-xlarge">
+              Click to Play
+            </button>
+          </div>
+        </div>
+      </div>
+          
+    </div>
 
     <div id="soundboard" class="container" style="padding:10px">
-            
+
     </div>
 
     <script type="text/javascript">
       var sounds = [];
       var playOnlyOneSoundAtATime = true;
+      playQueue = [];
       var row = $('<div \>')
               .addClass("row")
               .addClass("top-buffer");
@@ -95,10 +120,52 @@
         });
         $("#soundboard").on("click", "button", function() {
           //Play sound in data-sound attribute
-          var thisSound = $(this).data("sound");
-          var thisAudio = new Audio(thisSound);
-          thisAudio.play();                
+          if(playOnlyOneSoundAtATime){
+            var audio = new Audio($(this).data("sound"));
+            audio.play();
+          }else{
+            playQueue.push($(this).data("sound"));                      
+          }
+          // var thisSound = $(this).data("sound");
+          // var thisAudio = new Audio(thisSound);
+          // thisAudio.play();                
          });
+         $('#playbackType').on("change", function(){
+          console.log($(this).val());
+          if($(this).val() == "single"){
+            //hide playbutton
+            $("#playSection").hide();
+            playQueue = [];
+            playOnlyOneSoundAtATime = true;
+          }else{
+            //show playbutton
+            $("#playSection").show();
+            playOnlyOneSoundAtATime = false;
+          }
+          });
+
+          $("#playQueue").on("click", function(){
+            if(playQueue.length > 0){
+              var audio = new Audio(),
+              i = 0;
+              audio.addEventListener('ended', function() {
+                if(i < playQueue.length){
+                  audio.src = playQueue[i];
+                  audio.play();
+                  i++;
+                }
+                if(i == playQueue.length){
+                  i = 0;
+                  playQueue = [];
+                }
+              }, false);
+              audio.src = playQueue[i];
+              audio.play();
+              i++;
+            }
+            
+          });    
+
       });
     </script>
 
