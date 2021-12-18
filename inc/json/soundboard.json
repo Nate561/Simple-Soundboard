@@ -24,6 +24,11 @@
         "name": "VOMIT",
         "artist":"",
         "mp3" :"sounds/Vomit.mp3"
+      }, 
+      {
+        "name":"SAM", 
+        "artist":"",
+        "mp3":"sounds/GoodJobSamShort.m4a"
       }
     ]
   }
